@@ -1,14 +1,10 @@
 package ru.acorn.JavaRushTelegrambot.command;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 import static ru.acorn.JavaRushTelegrambot.command.CommandName.START;
 import static ru.acorn.JavaRushTelegrambot.command.StartCommand.START_MESSAGE;
 
 
-class StartCommandTest extends AbstractCommandTest {
+public class StartCommandTest extends AbstractCommandTest {
     @Override
     String getCommandName() {
         return START.getCommandName();
@@ -21,6 +17,6 @@ class StartCommandTest extends AbstractCommandTest {
 
     @Override
     Command getCommand() {
-            return new StartCommand(service);
+            return new StartCommand(service, telegramUserService);
     }
 }

@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import ru.acorn.JavaRushTelegrambot.service.SendBotMessageService;
 import ru.acorn.JavaRushTelegrambot.service.SendBotMessageServiceImpl;
+import ru.acorn.JavaRushTelegrambot.service.TelegramUserService;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
@@ -17,7 +18,8 @@ class CommandContainerTest {
     @BeforeEach
     void setUp() {
         SendBotMessageServiceImpl service = Mockito.mock(SendBotMessageServiceImpl.class);
-                commandContainer = new CommandContainer(service);
+        TelegramUserService telegramUserService = Mockito.mock(TelegramUserService.class);
+        commandContainer = new CommandContainer(service, telegramUserService);
     }
 
     @Test
@@ -36,6 +38,5 @@ class CommandContainerTest {
         String unknownCommand = "/asdasd";
         Command command = commandContainer.retrieveCommand(unknownCommand);
         assertEquals(UnknownCommand.class, command.getClass());
-
     }
 }
