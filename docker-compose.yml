@@ -1,10 +1,26 @@
-#docker-compose version
 version: '3.1'
+
 services:
-  jrtb:
+  jrtb-bot:
+    depends_on: ##сначала запускается jrtb-db. База данных
+      - jrtb-db
     build:
       context: .
     environment:
       BOT_NAME: test_JavaAcorn_bot
       BOT_TOKEN: 5578041606:AAHHXNOU4w82W1QhOR7lqfjUVTnqSpV6qvU
+      BOT_DB_USERNAME: jrtb_db_user
+      BOT_DB_PASSWORD: jrtb_db_password
     restart: always
+  jrtb-db:
+    image: mysql:8.0.31
+    restart: always
+    environment:
+      MYSQL_USER: 'dev_jrtb_db_user'
+      MYSQL_PASSWORD: 'dev_jrtb_db_password'
+      MYSQL_DATABASE: 'dev_jrtb_db'
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'

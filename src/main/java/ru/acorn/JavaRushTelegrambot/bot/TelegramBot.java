@@ -6,6 +6,7 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import ru.acorn.JavaRushTelegrambot.command.CommandContainer;
 import ru.acorn.JavaRushTelegrambot.config.BotConfig;
 import ru.acorn.JavaRushTelegrambot.service.SendBotMessageServiceImpl;
+import ru.acorn.JavaRushTelegrambot.service.TelegramUserService;
 
 import static ru.acorn.JavaRushTelegrambot.command.CommandName.NO;
 
@@ -13,12 +14,14 @@ import static ru.acorn.JavaRushTelegrambot.command.CommandName.NO;
 public class TelegramBot extends TelegramLongPollingBot {
     private final BotConfig botConfig;
     private final CommandContainer commandContainer;
+    private final TelegramUserService telegramUserService;
 
     public static String COMMAND_PREFIX = "/";
 
-    public TelegramBot(BotConfig botConfig) {
+    public TelegramBot(BotConfig botConfig, TelegramUserService telegramUserService) {
         this.botConfig = botConfig;
-        this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this));
+        this.telegramUserService = telegramUserService;
+        this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this), telegramUserService);
     }
 
     @Override

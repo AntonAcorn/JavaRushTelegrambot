@@ -2,7 +2,6 @@ package ru.acorn.JavaRushTelegrambot.command;
 
 import org.telegram.telegrambots.meta.api.objects.Update;
 import ru.acorn.JavaRushTelegrambot.service.SendBotMessageService;
-import ru.acorn.JavaRushTelegrambot.service.SendBotMessageServiceImpl;
 
 import static ru.acorn.JavaRushTelegrambot.command.CommandName.*;
 
