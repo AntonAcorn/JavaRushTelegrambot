@@ -8,9 +8,6 @@ import ru.acorn.JavaRushTelegrambot.javarushclient.dto.GroupsCountRequestArgs;
 
 import java.util.List;
 
-/**
- * Client for Javarush Open API corresponds to Groups.
- */
 public interface JavaRushGroupClient {
 
     List<GroupInfo> getGroupList(GroupRequestArgs requestArgs);

@@ -23,9 +23,10 @@ public class HelpCommand implements Command {
                     + "%s - get list groups you are subscribed\n\n"
 
                     + "%s - help\n"
-                    + "%s - statistics\n",
+                    + "%s - statistics\n"
+                    + "%s - unsubscribe\n",
             START.getCommandName(), STOP.getCommandName(), ADD_GROUP_SUB.getCommandName(),
-            LIST_GROUP_SUB.getCommandName(), HELP.getCommandName(), STAT.getCommandName());
+            LIST_GROUP_SUB.getCommandName(), HELP.getCommandName(), STAT.getCommandName(), DELETE_GROUP_SUB.getCommandName());
 
     @Override
     public void execute(Update update) {
