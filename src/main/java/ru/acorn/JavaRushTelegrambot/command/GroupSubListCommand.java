@@ -8,11 +8,11 @@ import ru.acorn.JavaRushTelegrambot.service.TelegramUserService;
 import javax.ws.rs.NotFoundException;
 import java.util.stream.Collectors;
 
-public class ListGroupSubCommand implements Command{
+public class GroupSubListCommand implements Command{
     private final TelegramUserService telegramUserService;
     private final SendBotMessageService sendBotMessageService;
 
-    public ListGroupSubCommand(TelegramUserService telegramUserService, SendBotMessageService sendBotMessageService) {
+    public GroupSubListCommand(TelegramUserService telegramUserService, SendBotMessageService sendBotMessageService) {
         this.telegramUserService = telegramUserService;
         this.sendBotMessageService = sendBotMessageService;
     }
