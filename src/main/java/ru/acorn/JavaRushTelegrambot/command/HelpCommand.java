@@ -12,11 +12,20 @@ public class HelpCommand implements Command {
         this.sendBotMessageService = sendBotMessageService;
     }
 
-    public static final String HELP_MESSAGE = String.format("Доcтупные команды\n"
-                    + "%s - начать работу со мной\n"
-                    + "%s - приостановить работу со мной\n"
-                    + "%s - получить помощь в работе со мной\n",
-            START.getCommandName(), STOP.getCommandName(), HELP.getCommandName());
+    public static final String HELP_MESSAGE = String.format("✨Available commands✨\n\n"
+
+                    + "Start\\stop working with bot:\n"
+                    + "%s - start working with me\n"
+                    + "%s - stop working with me\n\n"
+
+                    + "Subscriptions:\n"
+                    + "%s - subscribe\n"
+                    + "%s - get list groups you are subscribed\n\n"
+
+                    + "%s - help\n"
+                    + "%s - statistics\n",
+            START.getCommandName(), STOP.getCommandName(), ADD_GROUP_SUB.getCommandName(),
+            LIST_GROUP_SUB.getCommandName(), HELP.getCommandName(), STAT.getCommandName());
 
     @Override
     public void execute(Update update) {

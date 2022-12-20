@@ -1,8 +1,6 @@
 package ru.acorn.JavaRushTelegrambot.command;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
@@ -17,7 +15,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static ru.acorn.JavaRushTelegrambot.command.CommandName.LIST_GROUP_SUB;
 
 class GroupSubListCommandTest {
@@ -42,7 +39,7 @@ class GroupSubListCommandTest {
 
         Mockito.when(telegramUserService.findByChatId(user.getChatId())).thenReturn(Optional.of(user));
 
-        GroupSubListCommand command = new GroupSubListCommand(telegramUserService, sendBotMessageService);
+        ListGroupSubCommand command = new ListGroupSubCommand(sendBotMessageService,telegramUserService);
 
         Update update = new Update();
         Message message = Mockito.mock(Message.class);

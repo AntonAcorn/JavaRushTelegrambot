@@ -1,7 +1,6 @@
 package ru.acorn.JavaRushTelegrambot.command;
 
 import com.google.common.collect.ImmutableMap;
-import org.springframework.stereotype.Component;
 import ru.acorn.JavaRushTelegrambot.javarushclient.JavaRushGroupClient;
 import ru.acorn.JavaRushTelegrambot.service.GroupSubService;
 import ru.acorn.JavaRushTelegrambot.service.SendBotMessageService;
@@ -23,7 +22,7 @@ public class CommandContainer {
                 .put(NO.getCommandName(), new NoCommand(sendBotMessageService))
                 .put(STAT.getCommandName(), new StatCommand(sendBotMessageService, telegramUserService))
                 .put(ADD_GROUP_SUB.getCommandName(), new AddGroupSubCommand(sendBotMessageService, javaRushGroupClient, groupSubService))
-                .put(LIST_GROUP_SUB.getCommandName(), new GroupSubListCommand(telegramUserService,sendBotMessageService))
+                .put(LIST_GROUP_SUB.getCommandName(), new ListGroupSubCommand(sendBotMessageService,telegramUserService))
                 .build();
 
         unknownCommand = new UnknownCommand(sendBotMessageService);
