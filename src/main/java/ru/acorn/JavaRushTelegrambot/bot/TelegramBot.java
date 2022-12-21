@@ -9,6 +9,7 @@ import ru.acorn.JavaRushTelegrambot.config.BotConfig;
 import ru.acorn.JavaRushTelegrambot.javarushclient.JavaRushGroupClient;
 import ru.acorn.JavaRushTelegrambot.service.GroupSubService;
 import ru.acorn.JavaRushTelegrambot.service.SendBotMessageServiceImpl;
+import ru.acorn.JavaRushTelegrambot.service.StatisticsService;
 import ru.acorn.JavaRushTelegrambot.service.TelegramUserService;
 
 import java.util.List;
@@ -19,16 +20,20 @@ import static ru.acorn.JavaRushTelegrambot.command.CommandName.NO;
 public class TelegramBot extends TelegramLongPollingBot {
     private final BotConfig botConfig;
     private final CommandContainer commandContainer;
-    private final TelegramUserService telegramUserService;
+    //private final TelegramUserService telegramUserService;
 
     public static String COMMAND_PREFIX = "/";
 
-    public TelegramBot(BotConfig botConfig, TelegramUserService telegramUserService, JavaRushGroupClient javaRushGroupClient,
-                       GroupSubService groupSubService, @Value("#{'${bot.admins}'.split(',')}") List<String> admins) {
+    public TelegramBot(BotConfig botConfig,
+                       TelegramUserService telegramUserService,
+                       JavaRushGroupClient javaRushGroupClient,
+                       GroupSubService groupSubService,
+                       @Value("#{'${bot.admins}'.split(',')}") List<String> admins,
+                       StatisticsService statisticsService) {
         this.botConfig = botConfig;
-        this.telegramUserService = telegramUserService;
+        //this.telegramUserService = telegramUserService;
         this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this), telegramUserService,
-                javaRushGroupClient, groupSubService, admins);
+                javaRushGroupClient, groupSubService, admins, statisticsService);
     }
 
     @Override

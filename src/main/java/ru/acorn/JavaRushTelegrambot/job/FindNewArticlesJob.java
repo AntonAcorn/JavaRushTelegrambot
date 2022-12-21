@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 
-@Component
+
 @Slf4j
 public class FindNewArticlesJob {
     private final FindNewArticlesJob findNewArticlesJob;

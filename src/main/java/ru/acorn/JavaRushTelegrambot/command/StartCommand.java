@@ -22,7 +22,7 @@ public class StartCommand implements Command {
 
         String chatId = update.getMessage().getChatId().toString();
 
-        telegramUserService.findByChatId(chatId).ifPresentOrElse(telegramUser -> {
+        telegramUserService.findByChatId(Long.valueOf(chatId)).ifPresentOrElse(telegramUser -> {
                     telegramUser.setActive(true);
                     telegramUserService.save(telegramUser);
                 },

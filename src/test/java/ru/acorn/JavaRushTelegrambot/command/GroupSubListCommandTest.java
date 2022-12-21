@@ -37,7 +37,7 @@ class GroupSubListCommandTest {
         SendBotMessageService sendBotMessageService = Mockito.mock(SendBotMessageServiceImpl.class);
         TelegramUserService telegramUserService = Mockito.mock(TelegramUserService.class);
 
-        Mockito.when(telegramUserService.findByChatId(user.getChatId())).thenReturn(Optional.of(user));
+        Mockito.when(telegramUserService.findByChatId(Long.valueOf(user.getChatId()))).thenReturn(Optional.of(user));
 
         ListGroupSubCommand command = new ListGroupSubCommand(sendBotMessageService,telegramUserService);
 

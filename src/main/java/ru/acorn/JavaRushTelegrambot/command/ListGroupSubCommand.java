@@ -20,8 +20,8 @@ public class ListGroupSubCommand implements Command{
 
     @Override
     public void execute(Update update) {
-        TelegramUser telegramUser = telegramUserService.findByChatId(update.getMessage().getChatId()
-                .toString()).orElseThrow(NotFoundException::new);
+        TelegramUser telegramUser = telegramUserService.findByChatId(Long.valueOf(update.getMessage().getChatId()
+                .toString())).orElseThrow(NotFoundException::new);
         String message;
         if(CollectionUtils.isEmpty(telegramUser.getGroupSubs())) {
             message = "Пока нет подписок на группы. Чтобы добавить подписку напиши /addGroupSub";

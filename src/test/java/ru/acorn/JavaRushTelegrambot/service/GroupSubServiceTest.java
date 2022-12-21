@@ -28,7 +28,7 @@ public class GroupSubServiceTest {
         newUser.setActive(true);
         newUser.setChatId(CHAT_ID);
 
-        Mockito.when(telegramUserService.findByChatId(CHAT_ID)).thenReturn(Optional.of(newUser));
+        Mockito.when(telegramUserService.findByChatId(Long.valueOf(CHAT_ID))).thenReturn(Optional.of(newUser));
     }
 
     @Test

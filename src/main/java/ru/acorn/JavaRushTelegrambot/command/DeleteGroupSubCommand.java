@@ -45,7 +45,7 @@ public class DeleteGroupSubCommand implements Command {
             Optional<GroupSub> optionalGroupSub = groupSubService.findById(Integer.valueOf(groupId));
             if (optionalGroupSub.isPresent()) {
                 GroupSub groupSub = optionalGroupSub.get();
-                TelegramUser telegramUser = telegramUserService.findByChatId(chatId).orElseThrow(NotFoundException::new);
+                TelegramUser telegramUser = telegramUserService.findByChatId(Long.valueOf(chatId)).orElseThrow(NotFoundException::new);
                 groupSub.getUsers().remove(telegramUser);
                 groupSubService.save(groupSub);
                 sendBotMessageService.sendMessage(chatId, format("Удалил подписку на группу: %s", groupSub.getTitle()));
@@ -60,7 +60,7 @@ public class DeleteGroupSubCommand implements Command {
 
     private void sendGroupIdList(String chatId) {
         String message;
-        List<GroupSub> groupSubs = telegramUserService.findByChatId(chatId)
+        List<GroupSub> groupSubs = telegramUserService.findByChatId(Long.valueOf(chatId))
                 .orElseThrow(NotFoundException::new)
                 .getGroupSubs();
         if (CollectionUtils.isEmpty(groupSubs)) {

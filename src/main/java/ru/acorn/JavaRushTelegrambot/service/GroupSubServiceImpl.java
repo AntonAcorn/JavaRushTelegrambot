@@ -25,7 +25,7 @@ public class GroupSubServiceImpl implements GroupSubService {
 
     @Override
     public GroupSub save(String chatId, GroupDiscussionInfo groupDiscussionInfo) {
-        TelegramUser telegramUser = telegramUserService.findByChatId(chatId).orElseThrow(NotFoundException::new);
+        TelegramUser telegramUser = telegramUserService.findByChatId(Long.valueOf(chatId)).orElseThrow(NotFoundException::new);
         GroupSub groupSub;
 
         Optional <GroupSub> groupSubFromBd = groupSubRepository.findById(groupDiscussionInfo.getId());

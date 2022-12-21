@@ -1,5 +1,6 @@
 package ru.acorn.JavaRushTelegrambot.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.acorn.JavaRushTelegrambot.repository.TelegramUserRepository;
 import ru.acorn.JavaRushTelegrambot.repository.entity.TelegramUser;
@@ -9,10 +10,12 @@ import java.util.Optional;
 
 @Service
 public class TelegramUserServiceImpl implements TelegramUserService {
+
     private final TelegramUserRepository telegramUserRepository;
 
+    @Autowired
     public TelegramUserServiceImpl(TelegramUserRepository telegramUserRepository) {
-        this.telegramUserRepository= telegramUserRepository;
+        this.telegramUserRepository = telegramUserRepository;
     }
 
     @Override
@@ -21,12 +24,17 @@ public class TelegramUserServiceImpl implements TelegramUserService {
     }
 
     @Override
-    public Optional<TelegramUser> findByChatId(String chatId) {
-        return telegramUserRepository.findById(chatId);
+    public List<TelegramUser> findAllActiveUsers() {
+        return telegramUserRepository.findAllByActiveTrue();
     }
 
     @Override
-    public List<TelegramUser> retrieveAllActiveUser() {
-        return telegramUserRepository.findAllByActiveTrue();
+    public List<TelegramUser> findAllInActiveUsers() {
+        return telegramUserRepository.findAllByActiveFalse();
+    }
+
+    @Override
+    public Optional<TelegramUser> findByChatId(Long chatId) {
+        return telegramUserRepository.findById(chatId.toString());
     }
 }
