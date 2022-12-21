@@ -1,9 +1,11 @@
 package ru.acorn.JavaRushTelegrambot.command;
 
 import org.telegram.telegrambots.meta.api.objects.Update;
+import ru.acorn.JavaRushTelegrambot.command.annotation.AdminCommand;
 import ru.acorn.JavaRushTelegrambot.service.SendBotMessageService;
 import ru.acorn.JavaRushTelegrambot.service.TelegramUserService;
 
+@AdminCommand
 public class StatCommand implements Command {
    private final SendBotMessageService sendBotMessageService;
    private final TelegramUserService telegramUserService;
