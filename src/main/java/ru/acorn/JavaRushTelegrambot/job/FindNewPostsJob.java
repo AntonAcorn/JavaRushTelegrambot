@@ -2,26 +2,25 @@ package ru.acorn.JavaRushTelegrambot.job;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 
 
 @Slf4j
-public class FindNewArticlesJob {
-    private final FindNewArticlesJob findNewArticlesJob;
+public class FindNewPostsJob {
+    private final FindNewPostsJob findNewPostsJob;
 
-    public FindNewArticlesJob(FindNewArticlesJob findNewArticlesJob) {
-        this.findNewArticlesJob = findNewArticlesJob;
+    public FindNewPostsJob(FindNewPostsJob findNewPostsJob) {
+        this.findNewPostsJob = findNewPostsJob;
     }
-    @Scheduled(fixedRateString = "${bot.recountNewArticleFixedRate}")
-    public void findNewArticles() {
+    @Scheduled(fixedRateString = "${bot.recountNewPostFixedRate}")
+    public void findNewPosts() {
         LocalDateTime start = LocalDateTime.now();
 
         log.info("Find new article job started.");
 
-        findNewArticlesJob.findNewArticles();
+        findNewPostsJob.findNewPosts();
 
         LocalDateTime end = LocalDateTime.now();
 

@@ -24,16 +24,16 @@ class SendBotMessageServiceTest {
     @Test
     void sendMessage() throws TelegramApiException {
         //given
-        String chatId = "test_chat_id";
+        Long chatId = 12345l;
         String message = "test_message";
 
         SendMessage sendMessage = new SendMessage();
-        sendMessage.setChatId(chatId);
+        sendMessage.setChatId(String.valueOf(chatId));
         sendMessage.setText(message);
         sendMessage.enableHtml(true);
 
         //when
-        sendBotMessageService.sendMessage(chatId, message);
+        sendBotMessageService.sendMessage(Long.valueOf(chatId), message);
 
         //then
         Mockito.verify(telegramBot).execute(sendMessage);

@@ -24,7 +24,7 @@ class GroupSubListCommandTest {
         //given
         TelegramUser user = new TelegramUser();
         user.setActive(true);
-        user.setChatId("1");
+        user.setChatId(1L);
 
         List<GroupSub> groupSubList = new ArrayList<>();
         groupSubList.add(populateGroupSub(1, "gs1"));
@@ -47,10 +47,10 @@ class GroupSubListCommandTest {
         Mockito.when(message.getText()).thenReturn(LIST_GROUP_SUB.getCommandName());
         update.setMessage(message);
 
-        String collectedGroups = "All subscriptions to the group: \n\n" +
-                user.getGroupSubs().stream()
-                        .map(it -> "Group: " + it.getTitle() + " Group ID: " + it.getId() + " \n")
-                        .collect(Collectors.joining());
+        String joinedGroups = user.getGroupSubs().stream()
+                .map(it -> "Группа: " + it.getTitle() + " , ID = " + it.getId() + " \n")
+                .collect(Collectors.joining());
+        String collectedGroups = String.format("Я нашел все подписки на группы: \n\n %s", joinedGroups);
 
         //when
         command.execute(update);

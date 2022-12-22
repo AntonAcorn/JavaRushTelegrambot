@@ -6,7 +6,6 @@ import org.mockito.Mockito;
 import ru.acorn.JavaRushTelegrambot.javarushclient.JavaRushGroupClient;
 import ru.acorn.JavaRushTelegrambot.service.*;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 import static java.util.Collections.singletonList;
@@ -29,20 +28,20 @@ class CommandContainerTest {
     }
 
     @Test
-    void retrieveCommand() {//check all commands//. Все команды, которые поддерживает бот, находятся в списке CommandName и
+    void findCommand() {//check all commands//. Все команды, которые поддерживает бот, находятся в списке CommandName и
         // должны быть в контейнере. Поэтому я взял все переменные CommandName, перешел в Stream API и для каждого
         // выполнил поиск команды из контейнера. Если бы такой команды не было,
         // была бы возвращена команда UnknownCommand.
         Arrays.stream(CommandName.values()).forEach(commandName -> {
-            Command command = commandContainer.retrieveCommand(commandName.getCommandName(), "username");
+            Command command = commandContainer.findCommand(commandName.getCommandName(), "username");
             assertNotEquals(UnknownCommand.class, command.getClass());
         });
     }
 
     @Test
-    void retrieveUnknownCommand() {
+    void findUnknownCommand() {
         String unknownCommand = "/asdasd";
-        Command command = commandContainer.retrieveCommand(unknownCommand, "username");
+        Command command = commandContainer.findCommand(unknownCommand, "username");
         assertEquals(UnknownCommand.class, command.getClass());
     }
 }

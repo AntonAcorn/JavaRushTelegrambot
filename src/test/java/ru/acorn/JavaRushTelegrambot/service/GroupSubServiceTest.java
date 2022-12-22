@@ -26,7 +26,7 @@ public class GroupSubServiceTest {
 
         newUser = new TelegramUser();
         newUser.setActive(true);
-        newUser.setChatId(CHAT_ID);
+        newUser.setChatId(Long.valueOf(CHAT_ID));
 
         Mockito.when(telegramUserService.findByChatId(Long.valueOf(CHAT_ID))).thenReturn(Optional.of(newUser));
     }
@@ -53,7 +53,7 @@ public class GroupSubServiceTest {
     public void shouldProperlyAddUserToExistingGroup() {
         //given
         TelegramUser oldTelegramUser = new TelegramUser();
-        oldTelegramUser.setChatId("2");
+        oldTelegramUser.setChatId(2L);
         oldTelegramUser.setActive(true);
 
         GroupDiscussionInfo groupDiscussionInfo = new GroupDiscussionInfo();

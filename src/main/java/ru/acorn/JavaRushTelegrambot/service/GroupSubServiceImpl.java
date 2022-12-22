@@ -33,7 +33,7 @@ public class GroupSubServiceImpl implements GroupSubService {
             groupSub = groupSubFromBd.get();
             Optional<TelegramUser> first = groupSub.getUsers().stream()
                     .filter(user ->
-                        user.getChatId().equalsIgnoreCase(chatId)
+                        user.getChatId().toString().equalsIgnoreCase(chatId)
                     )
                     .findFirst();
             if(first.isEmpty()){

@@ -43,14 +43,14 @@ public class AddGroupSubCommand implements Command{
                 sendGroupNotFound(chatId, groupId);
             }
             GroupSub savedGroupSub = groupSubService.save(chatId, groupById);
-            sendBotMessageService.sendMessage(chatId, "Подписал на группу " + savedGroupSub.getTitle());
+            sendBotMessageService.sendMessage(Long.valueOf(chatId), "Подписал на группу " + savedGroupSub.getTitle());
         } else {
             sendGroupNotFound(chatId, groupId);
         }
     }
     private void sendGroupNotFound(String chatId, String groupId) {
         String groupNotFoundMessage = "Нет группы с ID = \"%s\"";
-        sendBotMessageService.sendMessage(chatId, String.format(groupNotFoundMessage, groupId));
+        sendBotMessageService.sendMessage(Long.valueOf(chatId), String.format(groupNotFoundMessage, groupId));
     }
     private void sendGroupIdList(Long chatId) {
         String groupIds = javaRushGroupClient.getGroupList(GroupRequestArgs.builder().build()).stream()
@@ -63,6 +63,6 @@ public class AddGroupSubCommand implements Command{
                 "имя группы - ID группы \n\n" +
                 "%s";
 
-        sendBotMessageService.sendMessage(String.valueOf(chatId), String.format(message, groupIds));
+        sendBotMessageService.sendMessage(chatId, String.format(message, groupIds));
     }
 }

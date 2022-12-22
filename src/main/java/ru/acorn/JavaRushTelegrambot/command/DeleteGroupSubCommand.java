@@ -48,12 +48,12 @@ public class DeleteGroupSubCommand implements Command {
                 TelegramUser telegramUser = telegramUserService.findByChatId(Long.valueOf(chatId)).orElseThrow(NotFoundException::new);
                 groupSub.getUsers().remove(telegramUser);
                 groupSubService.save(groupSub);
-                sendBotMessageService.sendMessage(chatId, format("Удалил подписку на группу: %s", groupSub.getTitle()));
+                sendBotMessageService.sendMessage(Long.valueOf(chatId), format("Удалил подписку на группу: %s", groupSub.getTitle()));
             } else {
-                sendBotMessageService.sendMessage(chatId, "Не нашел такой группы =/");
+                sendBotMessageService.sendMessage(Long.valueOf(chatId), "Не нашел такой группы =/");
             }
         } else {
-            sendBotMessageService.sendMessage(chatId, "неправильный формат ID группы.\n " +
+            sendBotMessageService.sendMessage(Long.valueOf(chatId), "неправильный формат ID группы.\n " +
                     "ID должно быть целым положительным числом");
         }
     }
@@ -77,6 +77,6 @@ public class DeleteGroupSubCommand implements Command {
                 .map(group -> format("%s - %s \n", group.getTitle(), group.getId()))
                 .collect(Collectors.joining());
 
-        sendBotMessageService.sendMessage(chatId, format(message, userGroupSubData));
+        sendBotMessageService.sendMessage(Long.valueOf(chatId), format(message, userGroupSubData));
     }
 }
