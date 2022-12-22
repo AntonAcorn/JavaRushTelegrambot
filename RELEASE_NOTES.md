@@ -42,4 +42,4 @@ Implemented all the logic, planned up to MVP:
 *   User can unsubscribe from group of posts
 *   User can set an inactive bot and do not receive notifications
 *   User can restart getting notifications
-*   Admin has ability to see bot statistics
+*   Admin has ability to see bot statistics.
