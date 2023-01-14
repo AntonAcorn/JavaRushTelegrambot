@@ -66,7 +66,7 @@ public class DeleteGroupSubCommand implements Command {
         if (CollectionUtils.isEmpty(groupSubs)) {
             message = "There are no group subscriptions yet. To add a subscription write /addGroupSub";
         } else {
-            message = "Чтобы удалить подписку на группу - передай комадну вместе с ID группы. \n" +
+            message = "To unsubscribe from a group - pass the command along with the group ID. \n" +
                     "Например: /deleteGroupSub 16 \n\n" +
                     "я подготовил список всех групп, на которые ты подписан) \n\n" +
                     "имя группы - ID группы \n\n" +
