@@ -24,15 +24,13 @@ public class ListGroupSubCommand implements Command{
                 .toString())).orElseThrow(NotFoundException::new);
         String message;
         if(CollectionUtils.isEmpty(telegramUser.getGroupSubs())) {
-            message = "Пока нет подписок на группы. Чтобы добавить подписку напиши /addGroupSub";
+            message = "There are no group subscriptions yet. To add a subscription write /addGroupSub";
         } else {
             String collectedGroups = telegramUser.getGroupSubs().stream()
-                    .map(it -> "Группа: " + it.getTitle() + " , ID = " + it.getId() + " \n")
+                    .map(it -> "Group: " + it.getTitle() + " , ID = " + it.getId() + " \n")
                     .collect(Collectors.joining());
-            message =  String.format("Я нашел все подписки на группы: \n\n %s", collectedGroups);
+            message =  String.format("I found all group subscriptions: \n\n %s", collectedGroups);
         }
-
-
         sendBotMessageService.sendMessage(telegramUser.getChatId(), message);
     }
 }

@@ -12,15 +12,15 @@ public class HelpCommand implements Command {
         this.sendBotMessageService = sendBotMessageService;
     }
 
-    public static final String HELP_MESSAGE = String.format("✨Available commands✨\n\n"
+    public static final String HELP_MESSAGE = String.format("✨Available commands✨\n"
 
-                    + "Start\\stop working with bot:\n"
+                    + "Start stop working with bot:\n"
                     + "%s - start working with me\n"
-                    + "%s - stop working with me\n\n"
+                    + "%s - stop working with me\n"
 
                     + "Subscriptions:\n"
                     + "%s - subscribe\n"
-                    + "%s - get list groups you are subscribed\n\n"
+                    + "%s - get list groups you are subscribed\n"
 
                     + "%s - help\n"
                     + "%s - statistics\n"

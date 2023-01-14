@@ -48,13 +48,13 @@ public class DeleteGroupSubCommand implements Command {
                 TelegramUser telegramUser = telegramUserService.findByChatId(Long.valueOf(chatId)).orElseThrow(NotFoundException::new);
                 groupSub.getUsers().remove(telegramUser);
                 groupSubService.save(groupSub);
-                sendBotMessageService.sendMessage(Long.valueOf(chatId), format("Удалил подписку на группу: %s", groupSub.getTitle()));
+                sendBotMessageService.sendMessage(Long.valueOf(chatId), format("Unsubscribed from a group: %s", groupSub.getTitle()));
             } else {
-                sendBotMessageService.sendMessage(Long.valueOf(chatId), "Не нашел такой группы =/");
+                sendBotMessageService.sendMessage(Long.valueOf(chatId), "No such group found =/");
             }
         } else {
-            sendBotMessageService.sendMessage(Long.valueOf(chatId), "неправильный формат ID группы.\n " +
-                    "ID должно быть целым положительным числом");
+            sendBotMessageService.sendMessage(Long.valueOf(chatId), "Invalid group ID format.\n " +
+                    "ID must be a positive integer");
         }
     }
 
@@ -64,7 +64,7 @@ public class DeleteGroupSubCommand implements Command {
                 .orElseThrow(NotFoundException::new)
                 .getGroupSubs();
         if (CollectionUtils.isEmpty(groupSubs)) {
-            message = "Пока нет подписок на группы. Чтобы добавить подписку напиши /addGroupSub";
+            message = "There are no group subscriptions yet. To add a subscription write /addGroupSub";
         } else {
             message = "Чтобы удалить подписку на группу - передай комадну вместе с ID группы. \n" +
                     "Например: /deleteGroupSub 16 \n\n" +

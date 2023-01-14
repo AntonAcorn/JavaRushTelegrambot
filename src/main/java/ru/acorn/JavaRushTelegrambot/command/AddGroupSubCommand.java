@@ -43,13 +43,13 @@ public class AddGroupSubCommand implements Command{
                 sendGroupNotFound(chatId, groupId);
             }
             GroupSub savedGroupSub = groupSubService.save(chatId, groupById);
-            sendBotMessageService.sendMessage(Long.valueOf(chatId), "Подписал на группу " + savedGroupSub.getTitle());
+            sendBotMessageService.sendMessage(Long.valueOf(chatId), "Subscribed to the group " + savedGroupSub.getTitle());
         } else {
             sendGroupNotFound(chatId, groupId);
         }
     }
     private void sendGroupNotFound(String chatId, String groupId) {
-        String groupNotFoundMessage = "Нет группы с ID = \"%s\"";
+        String groupNotFoundMessage = "No group with ID = \"%s\"";
         sendBotMessageService.sendMessage(Long.valueOf(chatId), String.format(groupNotFoundMessage, groupId));
     }
     private void sendGroupIdList(Long chatId) {
@@ -57,10 +57,10 @@ public class AddGroupSubCommand implements Command{
                 .map(group -> String.format("%s - %s \n", group.getTitle(), group.getId()))
                 .collect(Collectors.joining());
 
-        String message = "Чтобы подписаться на группу - передай команду вместе с ID группы. \n" +
-                "Например: /addGroupSub 30 \n\n" +
-                "я подготовил список всех групп - выбирай какую хочешь :) \n\n" +
-                "имя группы - ID группы \n\n" +
+        String message = "To subscribe to a group - run the command along with the group ID. \n" +
+                "For example: /addGroupSub 30 \n\n" +
+                "I have prepared a list of all groups - choose which one you want\n" +
+                "group name - group ID\n" +
                 "%s";
 
         sendBotMessageService.sendMessage(chatId, String.format(message, groupIds));
