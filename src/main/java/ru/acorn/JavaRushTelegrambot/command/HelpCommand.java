@@ -14,7 +14,6 @@ public class HelpCommand implements Command {
 
     public static final String HELP_MESSAGE = String.format("✨Available commands✨\n"
 
-                    + "Start stop working with bot:\n"
                     + "%s - start working with me\n"
                     + "%s - stop working with me\n"
 

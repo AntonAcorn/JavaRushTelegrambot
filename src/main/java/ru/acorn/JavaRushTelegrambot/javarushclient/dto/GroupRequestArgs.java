@@ -14,14 +14,7 @@ public class GroupRequestArgs {
     private final String query;
     private final GroupInfoType type;
     private final GroupFilter filter;
-
-    /**
-     * specified where to start getting groups
-     */
     private final Integer offset;
-    /**
-     * Limited number of groups.
-     */
     private final Integer limit;
 
     public Map populateQueries() {

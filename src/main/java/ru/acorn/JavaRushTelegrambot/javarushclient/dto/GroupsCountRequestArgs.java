@@ -8,9 +8,6 @@ import java.util.Map;
 
 import static java.util.Objects.nonNull;
 
-/**
- * Request arguments for group count requests.
- */
 @Builder
 @Getter
 public class GroupsCountRequestArgs {

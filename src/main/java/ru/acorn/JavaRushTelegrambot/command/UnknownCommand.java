@@ -10,7 +10,8 @@ public class UnknownCommand implements Command {
         this.sendBotMessageService = sendBotMessageService;
     }
 
-    public final static String UNKNOWN_MESSAGE = "Не понимаю вас, напишите /help чтобы узнать что я понимаю.";
+    public final static String UNKNOWN_MESSAGE = "I don't understand you, " +
+            "please type /help to find out what commands I support.";
 
     @Override
     public void execute(Update update) {
