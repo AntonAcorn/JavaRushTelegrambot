@@ -1,60 +1,53 @@
+# SubscribtionTelegramBot
+
+## Review
+The main goal of the project was to create an application 
+with a monolithic architecture and a database, in which the deployment and management 
+would be configured. In this project, the database is fully configured and Flyway has been added. 
+The project is wrapped in Docker and runs with a simple bash script.
+The commands are implemented using the Command behavioral pattern and immutable Map from the Apache Commons library.
+Communication with the REST API is implemented using the Unirest library.
+
+## The main functions of the application:
+
+User can subscribe to a group of posts.
+User can view a list of group subscriptions to which the user is subscribed.
+User can unsubscribe from a group of posts.
+User can set the bot to inactive and not receive notifications.
+User can restart receiving notifications.
+Admin has the ability to see bot statistics.
+
+The bot is set up based on the documentation of the open API (https://javarush.com/swagger-ui.html#/)
+
 ## Deployment
-Deployment process as easy as possible:
 Required software:
 - terminal for running bash scripts
 - docker
 - docker-compose
 
-to deploy application, switch to needed branch and run bash script:
+to deploy application run bash script:
 
-$ bash start.sh ${bot_username} ${bot_token}
-
-That's all.
-, на базе открытого API
-# URL shortener
-## Review
-This is a link-shortening service that transforms lengthy URLs into shorter,
-more manageable links. This can be useful for a variety of purposes,
-such as making links more shareable on social media, or for tracking clicks
-on a specific link. It is a simple and efficient solution that can help to streamline
-the process of sharing and managing links.
+$ bash start.sh 
 
 ### Technology stack
-* Java 17
+* Java 11
 * Spring Boot
 * Maven
 * Lombok
 * Unirest
-* commons-lang3
-* Hibernate validator
-* Model mapper
-* Google guava
+* SpringScheduler
 * Apache commons-lang3
 * Postgresql
-* Log4j
-
-## How to run
-* Clone repository
-* You should have docker and maven
-* Just use start.sh
-* To stop application use stop.sh
+* Flyway
+* Docker
 
 ## Endpoints
-POST /create
-
-If placed on port 7070, the request will look like:
-**localhost:7070/create**
-
-[Screenshot](https://github.com/AntonAcorn/Resources/blob/main/files/URLShortener/img.png)
-
-GET /{shortUrl}
-
-If placed on port 7070, the request will look like:
-**localhost:7070/create**
-
-The link has a certain storage time. If the time is running out,
-then you need to update the link, i.e. make a new POST request
-
+* /start - start/resume working with the bot
+* /stop - pause working with the bot
+* /addgroupsub - subscribe to a group of articles
+* /deletegroupsub - unsubscribe from a group of articles
+* /listgroupsub - list of groups subscribed to
+* /help - get help with working with me"
 
 
 

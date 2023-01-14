@@ -29,7 +29,7 @@ public class ListGroupSubCommand implements Command{
             String collectedGroups = telegramUser.getGroupSubs().stream()
                     .map(it -> "Group: " + it.getTitle() + " , ID = " + it.getId() + " \n")
                     .collect(Collectors.joining());
-            message =  String.format("I found all group subscriptions: \n\n %s", collectedGroups);
+            message =  String.format("I found all group subscriptions: \n %s", collectedGroups);
         }
         sendBotMessageService.sendMessage(telegramUser.getChatId(), message);
     }

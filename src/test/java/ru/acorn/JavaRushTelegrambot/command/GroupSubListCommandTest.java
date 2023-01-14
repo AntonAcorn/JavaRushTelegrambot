@@ -48,9 +48,9 @@ class GroupSubListCommandTest {
         update.setMessage(message);
 
         String joinedGroups = user.getGroupSubs().stream()
-                .map(it -> "Группа: " + it.getTitle() + " , ID = " + it.getId() + " \n")
+                .map(it -> "Group: " + it.getTitle() + " , ID = " + it.getId() + " \n")
                 .collect(Collectors.joining());
-        String collectedGroups = String.format("Я нашел все подписки на группы: \n\n %s", joinedGroups);
+        String collectedGroups = String.format("I found all group subscriptions: \n %s", joinedGroups);
 
         //when
         command.execute(update);

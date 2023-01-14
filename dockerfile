@@ -1,12 +1,12 @@
-#Образ контейнера jdk на основе которого собираем свой контейнер
+#The JDK container image that we use to build our own container
 FROM adoptopenjdk/openjdk11:ubi
-#добавляем аргумент, путь к джарнику нашего проекта
+#Adding an argument, the path to the JAR of our project
 ARG JAR_FILE=target/*.jar
-#envoronment переменные из application properties
+#Environment variables from the application properties
 ENV BOT_NAME=test_JavaAcorn_bot
 ENV BOT_TOKEN=5578041606:AAHHXNOU4w82W1QhOR7lqfjUVTnqSpV6qvU
 #Значения переменных будут другие.
-#Те, которые мы передадим в Dockerfile, тем не менее, требуют дать значения по умолчанию, поэтому я и ввел какие-то.
+#Те, которые мы передадим в dockerfile, тем не менее, требуют дать значения по умолчанию, поэтому я и ввел какие-то.
 ENV BOT_DB_USERNAME=botusername
 ENV BOT_DB_PASSWORD=botpassword
 #копируем джарник в образ докера

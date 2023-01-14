@@ -17,7 +17,7 @@ public class StatCommand implements Command {
     private final StatisticsService statisticsService;
     private final SendBotMessageService sendBotMessageService;
 
-    public final static String STAT_MESSAGE = "✨<b>Подготовил статистику</b>✨\n" +
+    public final static String STAT_MESSAGE = "✨<b>Prepared statistics</b>✨\n" +
             "- Number of active users: %s\n" +
             "- Number of inactive users: %s\n" +
             "- Average number of groups per user: %s\n\n" +

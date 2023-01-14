@@ -46,7 +46,7 @@ public class StatCommandTest {
                 statisticDTO.getActiveUserCount(),
                 statisticDTO.getInactiveUserCount(),
                 statisticDTO.getAverageGroupCountByUser(),
-                format("%s (id = %s) - %s подписчиков", groupDto.getTitle(), groupDto.getId(), groupDto.getActiveUserCount())));
+                format("%s (id = %s) - %s subscribers", groupDto.getTitle(), groupDto.getId(), groupDto.getActiveUserCount())));
     }
 
 }

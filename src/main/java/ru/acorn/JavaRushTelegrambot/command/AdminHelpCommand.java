@@ -6,9 +6,9 @@ import ru.acorn.JavaRushTelegrambot.service.SendBotMessageService;
 import static ru.acorn.JavaRushTelegrambot.command.CommandName.STAT;
 
 public class AdminHelpCommand implements Command{
-    public static final String ADMIN_HELP_MESSAGE = String.format("✨Доступные команды админа✨\n"
-                    + "Получить статистику\n"
-                    + "%s - статистика бота\n",
+    public static final String ADMIN_HELP_MESSAGE = String.format("✨Available admin commands✨\n"
+                    + "Get statistics\n"
+                    + "%s - bot statistics\n",
             STAT.getCommandName());
 
     private final SendBotMessageService sendBotMessageService;

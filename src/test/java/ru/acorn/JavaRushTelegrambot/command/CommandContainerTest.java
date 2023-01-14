@@ -28,10 +28,7 @@ class CommandContainerTest {
     }
 
     @Test
-    void findCommand() {//check all commands//. Все команды, которые поддерживает бот, находятся в списке CommandName и
-        // должны быть в контейнере. Поэтому я взял все переменные CommandName, перешел в Stream API и для каждого
-        // выполнил поиск команды из контейнера. Если бы такой команды не было,
-        // была бы возвращена команда UnknownCommand.
+    void findCommand() {
         Arrays.stream(CommandName.values()).forEach(commandName -> {
             Command command = commandContainer.findCommand(commandName.getCommandName(), "username");
             assertNotEquals(UnknownCommand.class, command.getClass());

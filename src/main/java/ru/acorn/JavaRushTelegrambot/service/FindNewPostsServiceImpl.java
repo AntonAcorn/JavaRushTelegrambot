@@ -37,9 +37,9 @@ public class FindNewPostsServiceImpl implements FindNewPostsService {
     private void notifySubscribersAboutNewPost(GroupSub groupSub, List<PostInfo> newPosts) {
         Collections.reverse(newPosts);
         List<String> messageWithNewArticle = newPosts.stream()
-                .map(postInfo -> String.format("✨Вышла новая статья %s в группе %s✨\n" +
-                                "Описание:  %s\n" +
-                                "Ссылка:  %s\n",
+                .map(postInfo -> String.format("✨A new article %s has been published in the group %s✨\n" +
+                                "Description::  %s\n" +
+                                "Link:  %s\n",
                         postInfo.getTitle(), groupSub.getTitle(), postInfo.getDescription(), getPostUrl(postInfo.getKey())))
                .collect(Collectors.toList());
     }
