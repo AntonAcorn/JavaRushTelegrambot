@@ -12,7 +12,7 @@ docker-compose stop
 
 # Add environment variables
 export BOT_NAME=test_JavaAcorn_bot
-export BOT_TOKEN=5578041606:AAHHXNOU4w82W1QhOR7lqfjUVTnqSpV6qvU
+export BOT_TOKEN=5578041606:AAFOrM62Te-r0xx2jIzhRXZJrREXyEP6YCE
 export BOT_DB_USERNAME=botusername
 export BOT_DB_PASSWORD=botpassword
 

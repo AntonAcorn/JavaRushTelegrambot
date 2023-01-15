@@ -4,7 +4,7 @@ FROM adoptopenjdk/openjdk11:ubi
 ARG JAR_FILE=target/*.jar
 #Environment variables from the application properties
 ENV BOT_NAME=test_JavaAcorn_bot
-ENV BOT_TOKEN=5578041606:AAHHXNOU4w82W1QhOR7lqfjUVTnqSpV6qvU
+ENV BOT_TOKEN=5578041606:AAFOrM62Te-r0xx2jIzhRXZJrREXyEP6YCE
 #Значения переменных будут другие.
 #Те, которые мы передадим в dockerfile, тем не менее, требуют дать значения по умолчанию, поэтому я и ввел какие-то.
 ENV BOT_DB_USERNAME=botusername
