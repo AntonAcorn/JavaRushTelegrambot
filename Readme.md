@@ -20,10 +20,15 @@ Admin has the ability to see bot statistics.
 The bot is set up based on the documentation of the open API (https://javarush.com/swagger-ui.html#/)
 
 ## Deployment
+This application is deployed on an Amazon Web Services (AWS).
+Just write on telegram @test_JavaAcorn_bot
+
+If you want to use on your local host, try next steps:
 Required software:
 - terminal for running bash scripts
 - docker
 - docker-compose
+Remember that you need to use your own bot token
 
 to deploy application run bash script:
 
